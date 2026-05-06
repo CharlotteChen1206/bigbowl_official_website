@@ -22,10 +22,7 @@ html {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at top left, rgba(184, 138, 59, 0.12), transparent 28%),
-    radial-gradient(circle at bottom right, rgba(20, 33, 30, 0.08), transparent 32%),
-    linear-gradient(180deg, #f8f2e8 0%, var(--bg) 50%, #ebe1d1 100%);
+  background: #fffdfa;
   color: var(--text);
   font-family: Georgia, "Times New Roman", serif;
 }

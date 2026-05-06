@@ -59,6 +59,7 @@ main {
   margin-bottom: 28px;
   margin-top: 0;
   padding-top: 0;
+  background: #fffdfa;
 }
 
 .hero-shell > .page-header {
@@ -338,7 +339,7 @@ main {
   top: 0;
   border: 0;
   border-radius: 0;
-  background: #f7efe4;
+  background: #fffdfa;
   min-height: 100vh;
   height: 100vh;
   --hero-image-shift: 0px;
@@ -1982,6 +1983,8 @@ li {
   }
 
   .how-steps-row.touch-animated .how-step.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
     box-shadow: 0 22px 44px rgba(10, 27, 32, 0.18);
   }
 

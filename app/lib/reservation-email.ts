@@ -1,4 +1,5 @@
 import type { ReservationRecord } from "@/app/lib/reservation-store";
+import { absoluteUrl } from "@/app/lib/site-config";
 
 const restaurantEmail = "bigbowlhotpot@gmail.com";
 
@@ -139,6 +140,9 @@ function emailShell(content: string) {
 export function restaurantNotificationEmail(reservation: ReservationRecord) {
   const formattedDate = formatReservationDate(reservation.date);
   const formattedTime = formatReservationTime(reservation.time);
+  const confirmationUrl = absoluteUrl(
+    `/api/reservations/confirm?token=${encodeURIComponent(reservation.token)}`
+  );
 
   return {
     to: getRestaurantNotificationEmails(),
@@ -156,7 +160,11 @@ export function restaurantNotificationEmail(reservation: ReservationRecord) {
         <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;font-weight:700;">Phone</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">${escapeHtml(reservation.phone)}</td></tr>
         <tr><td style="padding:8px 12px;border-bottom:1px solid #eee;font-weight:700;">Special Requests</td><td style="padding:8px 12px;border-bottom:1px solid #eee;">${escapeHtml(reservation.requests || "None")}</td></tr>
       </table>
-      <p style="margin:0 0 18px;">Please reply to the guest or contact them directly to confirm this reservation.</p>
+      <p style="margin:0 0 18px;">Click the button below to open the confirmation page, then confirm and automatically email the guest.</p>
+      <p style="margin:0 0 18px;">
+        <a href="${confirmationUrl}" style="display:inline-block;padding:13px 22px;border-radius:999px;background:#173f4b;color:#ffffff;font-weight:700;text-decoration:none;">Confirm Reservation</a>
+      </p>
+      <p style="margin:0;color:#6c6258;font-size:13px;">After confirmation, the page will show a confirmed message so you know the guest has been emailed.</p>
     `)
   };
 }

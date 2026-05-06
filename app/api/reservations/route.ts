@@ -5,6 +5,7 @@ import {
   sendReservationEmail
 } from "@/app/lib/reservation-email";
 import { ReservationRecord } from "@/app/lib/reservation-store";
+import { createReservationToken } from "@/app/lib/reservation-token";
 
 export const runtime = "nodejs";
 
@@ -20,8 +21,8 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const reservation: ReservationRecord = {
-      id: "",
-      token: "",
+      id: crypto.randomUUID(),
+      token: crypto.randomUUID(),
       status: "pending",
       date: cleanString(body.date),
       time: cleanString(body.time),
@@ -61,6 +62,8 @@ export async function POST(request: NextRequest) {
     if (!Number.isInteger(partySize) || partySize < 4 || partySize > 20) {
       return NextResponse.json({ error: "Party size must be between 4 and 20." }, { status: 400 });
     }
+
+    reservation.token = createReservationToken(reservation);
 
     const restaurantEmail = restaurantNotificationEmail(reservation);
     const pendingEmail = customerPendingEmail(reservation);

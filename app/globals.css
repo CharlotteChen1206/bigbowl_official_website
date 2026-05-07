@@ -22,7 +22,7 @@ html {
 
 body {
   margin: 0;
-  background: #fffdfa;
+  background: #fffdf8;
   color: var(--text);
   font-family: Georgia, "Times New Roman", serif;
 }
@@ -59,7 +59,7 @@ main {
   margin-bottom: 28px;
   margin-top: 0;
   padding-top: 0;
-  background: #fffdfa;
+  background: #fffdf8;
 }
 
 .hero-shell > .page-header {
@@ -95,6 +95,7 @@ main {
   gap: 18px;
   padding: 14px clamp(32px, 4vw, 56px);
   background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 8px 22px rgba(18, 16, 12, 0.06);
 }
 
 .brand {
@@ -339,7 +340,7 @@ main {
   top: 0;
   border: 0;
   border-radius: 0;
-  background: #fffdfa;
+  background: #fffdf8;
   min-height: 100vh;
   height: 100vh;
   --hero-image-shift: 0px;
@@ -441,7 +442,7 @@ main {
   overflow: hidden;
   min-height: var(--page-hero-card-height);
   height: var(--page-hero-card-height);
-  background-color: #f7efe4;
+  background-color: #fffdf8;
   background-attachment: fixed;
   background-position: left top;
   background-repeat: no-repeat;
@@ -684,7 +685,7 @@ li {
   justify-content: center;
   min-height: min(96vh, 980px);
   padding: 42px 44px;
-  background: #fffdfa;
+  background: #fffdf8;
 }
 
 .image-panel {
@@ -786,7 +787,7 @@ li {
   justify-content: flex-start;
   gap: 28px;
   padding: 44px 48px;
-  background: #fffdfa;
+  background: #fffdf8;
   border: 1px solid var(--line);
   border-radius: 28px;
   box-shadow: var(--shadow);
@@ -1070,9 +1071,34 @@ li {
 
 .news-card a {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 12px;
-  color: var(--accent-dark);
-  font-weight: 700;
+  min-height: 42px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #eda61f 0%, #d88d12 100%);
+  color: #fffaf2;
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow:
+    0 10px 22px rgba(167, 117, 40, 0.16),
+    inset 0 1px 0 rgba(255, 248, 231, 0.34);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.news-card a:hover,
+.news-card a:focus-visible {
+  transform: translateY(-1px);
+  background: linear-gradient(180deg, #f2ad2d 0%, #dc9317 100%);
+  box-shadow:
+    0 14px 28px rgba(167, 117, 40, 0.22),
+    inset 0 1px 0 rgba(255, 248, 231, 0.42);
 }
 
 .news-article-card {
@@ -1085,6 +1111,7 @@ li {
 .news-thumb-shell {
   overflow: hidden;
   aspect-ratio: 16 / 10;
+  background: #fffdf8;
 }
 
 .news-thumb {
@@ -1100,6 +1127,12 @@ li {
   background: #fffdf8;
 }
 
+.news-thumb-shell img.news-media-frame {
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
+
 .news-thumb-shell .news-media-frame {
   pointer-events: none;
 }
@@ -1113,7 +1146,7 @@ li {
 }
 
 .news-article-page {
-  max-width: 1040px;
+  max-width: 1160px;
   padding: 42px 0 18px;
 }
 
@@ -1130,9 +1163,16 @@ li {
   max-width: 58ch;
 }
 
+.news-article-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.38fr) minmax(0, 1fr);
+  gap: clamp(32px, 4vw, 58px);
+  align-items: start;
+}
+
 .news-article-hero {
   overflow: hidden;
-  margin-bottom: 28px;
+  margin-bottom: 0;
   border: 1px solid var(--line);
   border-radius: 28px;
   background: rgba(255, 252, 246, 0.92);
@@ -1140,19 +1180,21 @@ li {
 }
 
 .news-article-hero img {
+  display: block;
   width: 100%;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
 }
 
-.news-article-hero .news-media-frame {
+.news-article-hero iframe.news-media-frame {
   min-height: clamp(520px, 72vh, 960px);
 }
 
 .news-article-body {
-  max-width: 68ch;
+  max-width: 58ch;
   display: grid;
   gap: 18px;
+  padding-top: 8px;
 }
 
 .news-article-body p {
@@ -1307,6 +1349,7 @@ li {
 .reservation-form-panel label {
   display: grid;
   gap: 6px;
+  width: 100%;
   max-width: 340px;
   color: #050505;
   font-size: 0.94rem;
@@ -1317,6 +1360,9 @@ li {
 .reservation-form-panel select,
 .reservation-form-panel textarea {
   width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+  height: 46px;
   min-height: 46px;
   border: 1px solid rgba(5, 5, 5, 0.12);
   border-radius: 10px;
@@ -1332,6 +1378,22 @@ li {
     background-color 180ms ease,
     box-shadow 180ms ease,
     transform 180ms ease;
+}
+
+.reservation-form-panel input[type="date"] {
+  display: block;
+  -webkit-appearance: none;
+  appearance: none;
+  line-height: normal;
+}
+
+.reservation-form-panel input[type="date"]::-webkit-date-and-time-value {
+  min-height: 1.2em;
+  text-align: left;
+}
+
+.reservation-form-panel input[type="date"]::-webkit-calendar-picker-indicator {
+  margin-right: 0;
 }
 
 .reservation-form-panel input:hover,
@@ -1354,17 +1416,14 @@ li {
 }
 
 .reservation-form-panel textarea {
+  height: auto;
   min-height: 84px;
   padding: 12px 14px;
   resize: vertical;
 }
 
 .reservation-form-panel select {
-  max-width: 80px;
-}
-
-.reservation-party-field {
-  max-width: 80px;
+  max-width: 340px;
 }
 
 .reservation-submit-button {
@@ -1896,6 +1955,48 @@ li {
   }
 }
 
+@media (max-width: 900px) {
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 22px;
+  }
+
+  .brand {
+    justify-content: flex-start;
+    flex: 0 0 auto;
+  }
+
+  .header-main,
+  .header-reserve-button {
+    display: none;
+  }
+
+  .header-actions {
+    align-items: center;
+    flex: 0 0 auto;
+    gap: 14px;
+    justify-content: flex-end;
+  }
+
+  .menu-button,
+  .mobile-menu {
+    display: inline-flex;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .menu-button {
+    position: relative;
+    flex: 0 0 auto;
+    border-radius: 4px;
+  }
+}
+
 @media (max-width: 720px) {
   main {
     padding: 0;
@@ -2091,11 +2192,6 @@ li {
     max-width: none;
   }
 
-  .reservation-form-panel select,
-  .reservation-party-field {
-    max-width: 96px;
-  }
-
   .reservation-image-panel {
     min-height: 720px;
   }
@@ -2217,6 +2313,21 @@ li {
   }
 
   .news-article-page {
-    padding: 26px 0 10px;
+    padding: 26px 0 10px 14px;
+  }
+
+  .news-article-layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .news-article-hero {
+    width: min(78vw, 360px);
+    margin-right: auto;
+  }
+
+  .news-article-body {
+    max-width: none;
+    padding-top: 0;
   }
 }

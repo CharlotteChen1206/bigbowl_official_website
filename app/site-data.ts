@@ -35,8 +35,8 @@ export const newsArticles = [
     date: "2026-05-05",
     excerpt:
       "A refreshing plum drink is now featured for guests looking for a bright, cooling pairing with their hot pot bowl.",
-    mediaSrc: "/news-assets/plum-drink.pdf",
-    mediaType: "pdf",
+    mediaSrc: "/news-assets/plum-drink.jpg",
+    mediaType: "image",
     mediaAlt: "Big Bowl Hot Pot plum drink poster",
     body: [
       "Our plum drink is a refreshing option for guests who want something bright, lightly sweet, and cooling alongside a warm hot pot bowl. It is especially easy to pair with spicy broths, savory ingredients, and richer add-ons.",
@@ -49,8 +49,8 @@ export const newsArticles = [
     date: "2026-03-06",
     excerpt:
       "A new seasonal broth is now available, bringing a gentler depth and a richer finish to your custom bowl.",
-    mediaSrc: "/news-assets/limited-time-new-broth.pdf",
-    mediaType: "pdf",
+    mediaSrc: "/news-assets/limited-time-new-broth.jpg",
+    mediaType: "image",
     mediaAlt: "Big Bowl Hot Pot limited-time broth poster",
     body: [
       "Our latest seasonal broth is designed for guests who want something warm, fragrant, and a little different from the regular rotation. It keeps the familiar comfort of a hot bowl while adding a softer, rounded flavor profile that works beautifully with vegetables, tofu, seafood, and sliced meats.",
@@ -63,8 +63,8 @@ export const newsArticles = [
     date: "2026-03-05",
     excerpt:
       "We have refreshed our add-on selection with a few guest favorites that make lunch, dinner, and sharing even better.",
-    mediaSrc: "/news-assets/new-add-ons.pdf",
-    mediaType: "pdf",
+    mediaSrc: "/news-assets/new-add-ons.jpg",
+    mediaType: "image",
     mediaAlt: "Big Bowl Hot Pot add-ons and dry mix poster",
     body: [
       "We have expanded a few side and add-on choices to give guests more flexibility when building a full meal. These additions are meant to work alongside our self-serve bowls, whether you are visiting for a quick lunch or a longer group dinner.",
@@ -77,8 +77,8 @@ export const newsArticles = [
     date: "2026-03-05",
     excerpt:
       "A few crispy, shareable appetizers are now easier to spot on the menu, perfect for rounding out the table before the bowls arrive.",
-    mediaSrc: "/news-assets/appetizers.pdf",
-    mediaType: "pdf",
+    mediaSrc: "/news-assets/appetizers.jpg",
+    mediaType: "image",
     mediaAlt: "Big Bowl Hot Pot appetizers poster",
     body: [
       "Appetizers are a small part of the menu, but they make a big difference when you are dining with friends or family. We are highlighting some easy shareable options so guests can start the meal with something crisp, warm, and familiar.",
@@ -91,8 +91,8 @@ export const newsArticles = [
     date: "2026-03-05",
     excerpt:
       "Our drink selection is being organized more clearly so guests can find refreshing pairings for spicy, savory, or lighter bowls.",
-    mediaSrc: "/news-assets/drink-menu.pdf",
-    mediaType: "pdf",
+    mediaSrc: "/news-assets/drink-menu.jpg",
+    mediaType: "image",
     mediaAlt: "Big Bowl Hot Pot drink menu poster",
     body: [
       "The drink menu is being presented more clearly to make it easier to choose something that matches your bowl. Whether you want something cooling, lightly sweet, or simple and refreshing, the goal is to make pairing feel straightforward.",

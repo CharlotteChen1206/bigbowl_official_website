@@ -7,6 +7,8 @@ import logoImage from "@/images/Logo-removebg.png";
 import { siteConfig } from "@/app/lib/site-config";
 import { navItems } from "@/app/site-data";
 
+const mobileHeaderBreakpoint = 900;
+
 type SiteHeaderProps = {
   currentPath?: string;
 };
@@ -16,7 +18,7 @@ export function SiteHeader({ currentPath = "/" }: SiteHeaderProps) {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 720) {
+      if (window.innerWidth > mobileHeaderBreakpoint) {
         setMobileMenuOpen(false);
       }
     };

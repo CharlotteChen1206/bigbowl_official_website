@@ -4,6 +4,12 @@ type NewsMediaProps = {
 };
 
 export function NewsMedia({ src, title }: NewsMediaProps) {
+  const isPdf = src.toLowerCase().endsWith(".pdf");
+
+  if (!isPdf) {
+    return <img className="news-media-frame" src={src} alt={title} loading="lazy" />;
+  }
+
   return (
     <iframe
       className="news-media-frame"

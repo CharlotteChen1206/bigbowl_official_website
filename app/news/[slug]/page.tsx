@@ -60,14 +60,16 @@ export default async function NewsArticlePage({ params }: NewsArticlePageProps) 
           <p>{article.excerpt}</p>
         </header>
 
-        <div className="news-article-hero">
-          <NewsMedia src={article.mediaSrc} title={article.title} />
-        </div>
+        <div className="news-article-layout">
+          <div className="news-article-hero">
+            <NewsMedia src={article.mediaSrc} title={article.title} />
+          </div>
 
-        <div className="news-article-body">
-          {article.body.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
+          <div className="news-article-body">
+            {article.body.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
         </div>
       </article>
 

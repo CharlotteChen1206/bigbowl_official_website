@@ -22,7 +22,7 @@ function htmlResponse(title: string, content: string, status = 200, confirmed = 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>${escapeHtml(title)}</title>
         <style>
-          body { margin: 0; font-family: Arial, sans-serif; background: #fffdfa; color: #161616; }
+          body { margin: 0; font-family: Arial, sans-serif; background: #fffdf8; color: #161616; }
           main { min-height: 100vh; display: grid; place-items: center; padding: 24px; }
           section { max-width: 560px; padding: 34px; background: #fff; border: 1px solid #eadfce; border-radius: 14px; box-shadow: 0 24px 64px rgba(22, 20, 16, 0.12); }
           h1 { margin: 0 0 12px; font-size: 28px; }

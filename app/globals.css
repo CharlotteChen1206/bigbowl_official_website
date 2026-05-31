@@ -2176,6 +2176,74 @@ li {
   object-position: center center;
 }
 
+.parking-section {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.38fr) minmax(0, 0.62fr);
+  gap: 18px;
+  align-items: stretch;
+  background: #123f49;
+  color: #fffaf2;
+}
+
+.parking-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 420px;
+  padding: clamp(38px, 4.6vw, 70px) clamp(30px, 4vw, 60px);
+}
+
+.parking-eyebrow {
+  margin: 0 0 16px;
+  color: #f0b75a;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.parking-copy h2 {
+  margin-bottom: 22px;
+  color: #fffaf2;
+  font-size: clamp(2.8rem, 6vw, 6.2rem);
+  line-height: 0.92;
+}
+
+.parking-copy p:last-child {
+  max-width: 34ch;
+  margin-bottom: 0;
+  color: rgba(255, 250, 242, 0.92);
+  font-size: clamp(1.02rem, 1.16vw, 1.22rem);
+  line-height: 1.65;
+}
+
+.parking-map-card {
+  display: grid;
+  align-content: start;
+  min-height: 420px;
+  margin: 0;
+  background: #fffdf8;
+  color: #1b1914;
+}
+
+.parking-map-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.parking-map-card figcaption {
+  padding: 16px clamp(18px, 2vw, 28px) 18px;
+  border-top: 1px solid rgba(5, 5, 5, 0.1);
+  background: #fffaf2;
+  color: #25211a;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
 .contact-map-shell {
   overflow: hidden;
   height: clamp(380px, 52vh, 620px);
@@ -2720,6 +2788,19 @@ li {
     gap: 56px;
   }
 
+  .parking-section {
+    grid-template-columns: 1fr;
+  }
+
+  .parking-copy,
+  .parking-map-card {
+    min-height: 0;
+  }
+
+  .parking-map-card img {
+    max-height: 620px;
+  }
+
   .contact-image-panel {
     min-height: 520px;
   }
@@ -3046,6 +3127,23 @@ li {
 
   .contact-info-list dd {
     text-align: left;
+  }
+
+  .parking-copy {
+    padding: 34px 24px;
+  }
+
+  .parking-copy h2 {
+    font-size: clamp(2.35rem, 12vw, 3.8rem);
+  }
+
+  .parking-map-card img {
+    min-height: 300px;
+  }
+
+  .parking-map-card figcaption {
+    padding: 14px 18px 16px;
+    font-size: 0.94rem;
   }
 
   .contact-image-panel {

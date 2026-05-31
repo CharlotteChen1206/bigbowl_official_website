@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 import heroImage from "@/images/hero horizontal.png";
 import outsideViewImage from "@/images/outside view bg.png";
 import redBackgroundImage from "@/images/red bg.png";
+import { OrderOnlineSection } from "@/app/components/OrderOnlineSection";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { SiteHeader } from "@/app/components/SiteHeader";
 import { processSteps } from "@/app/site-data";
@@ -217,6 +218,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <OrderOnlineSection />
 
       <SiteFooter />
     </main>

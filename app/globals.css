@@ -12,6 +12,881 @@
   --shadow: 0 28px 80px rgba(22, 20, 16, 0.14);
 }
 
+.delivery-preview-page {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    linear-gradient(180deg, #fffdf8 0%, #f7efe2 48%, #fffdf8 100%);
+}
+
+.delivery-preview-page .page-header {
+  position: relative;
+  z-index: 2;
+}
+
+.delivery-preview-intro,
+.delivery-concept {
+  max-width: 1280px;
+  margin: 0 auto 28px;
+}
+
+.delivery-preview-intro {
+  padding: clamp(42px, 6vw, 76px) clamp(24px, 4vw, 52px) clamp(20px, 3vw, 34px);
+}
+
+.delivery-preview-intro h1 {
+  max-width: 920px;
+  margin-bottom: 20px;
+  color: #101010;
+  font-size: clamp(2.8rem, 5.4vw, 5.2rem);
+  letter-spacing: 0.01em;
+}
+
+.delivery-preview-intro p:last-child {
+  max-width: 58ch;
+  color: #25211a;
+}
+
+.delivery-concept {
+  overflow: hidden;
+  border: 1px solid rgba(52, 44, 28, 0.14);
+  background: #fffdf8;
+  box-shadow: 0 28px 80px rgba(22, 20, 16, 0.1);
+}
+
+.delivery-strip-copy > span,
+.delivery-switcher-copy > span,
+.route-copy > span,
+.ticket-copy span,
+.delivery-band-inner span {
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: #b47a14;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.delivery-concept h2 {
+  margin-bottom: 0;
+  color: #090909;
+  letter-spacing: 0.03em;
+}
+
+.delivery-logo-pill,
+.switcher-link,
+.route-stop,
+.ticket-row,
+.band-link {
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.uber {
+  --platform-color: #06c167;
+  --platform-soft: rgba(6, 193, 103, 0.12);
+}
+
+.doordash {
+  --platform-color: #ff3008;
+  --platform-soft: rgba(255, 48, 8, 0.12);
+}
+
+.fantuan {
+  --platform-color: #42c8bd;
+  --platform-soft: rgba(66, 200, 189, 0.14);
+}
+
+.zomi {
+  --platform-color: #050505;
+  --platform-soft: rgba(5, 5, 5, 0.1);
+}
+
+.delivery-strip {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.32fr) minmax(0, 0.68fr);
+  align-items: center;
+  min-height: 220px;
+  border-radius: 0;
+  background: #123f49;
+  color: #fff7eb;
+}
+
+.delivery-strip-copy {
+  padding: clamp(34px, 4vw, 56px);
+}
+
+.delivery-strip h2 {
+  color: #fff7eb;
+}
+
+.delivery-strip-logos {
+  display: flex;
+  gap: 14px;
+  overflow: hidden;
+  padding: 34px 0;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.delivery-logo-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  min-width: 168px;
+  min-height: 58px;
+  border: 1px solid rgba(255, 247, 235, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 247, 235, 0.92);
+  color: var(--platform-color);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.04rem;
+  font-weight: 800;
+}
+
+.delivery-logo-pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+.delivery-switcher {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+  gap: 28px;
+  align-items: center;
+  padding: clamp(34px, 4.4vw, 60px);
+  border-radius: 28px;
+}
+
+.delivery-switcher-copy p {
+  max-width: 34ch;
+  margin: 16px 0 0;
+  color: #25211a;
+}
+
+.delivery-app-switcher {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid rgba(5, 5, 5, 0.1);
+  border-radius: 999px;
+  background: rgba(246, 239, 228, 0.88);
+}
+
+.switcher-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 58px;
+  border-radius: 999px;
+  color: #111111;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.switcher-link:hover {
+  background: var(--platform-soft);
+  color: var(--platform-color);
+  transform: translateY(-1px);
+}
+
+.delivery-route {
+  position: relative;
+  display: grid;
+  gap: 30px;
+  min-height: 560px;
+  padding: clamp(34px, 4.6vw, 58px);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0.96), rgba(255, 246, 232, 0.9)),
+    repeating-linear-gradient(
+      45deg,
+      rgba(18, 63, 73, 0.08),
+      rgba(18, 63, 73, 0.08) 1px,
+      transparent 1px,
+      transparent 28px
+    );
+}
+
+.order-online-section {
+  max-width: 1280px;
+  margin: 0 auto 28px;
+}
+
+.route-copy p {
+  max-width: 45ch;
+  margin: 14px 0 0;
+  color: #25211a;
+}
+
+.delivery-road-scene {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  border: 1px solid rgba(18, 63, 73, 0.08);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 235, 214, 0.86), rgba(246, 218, 196, 0.92)),
+    radial-gradient(circle at 18% 24%, rgba(226, 150, 18, 0.12), transparent 22%),
+    radial-gradient(circle at 84% 72%, rgba(18, 63, 73, 0.1), transparent 24%);
+}
+
+.map-banner {
+  min-height: 500px;
+}
+
+.map-banner .delivery-road-scene {
+  min-height: 360px;
+}
+
+.road-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.road-svg-mobile {
+  display: none;
+}
+
+.road-shadow,
+.road-body,
+.road-dashes {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.road-shadow {
+  stroke: rgba(22, 20, 16, 0.12);
+  stroke-width: 98px;
+  transform: translateY(10px);
+}
+
+.road-body {
+  stroke: #747474;
+  stroke-width: 86px;
+}
+
+.road-dashes {
+  stroke: rgba(255, 253, 248, 0.88);
+  stroke-width: 7px;
+  stroke-dasharray: 34 32;
+  animation: roadDashDrift 1.8s linear infinite;
+}
+
+.map-background-decorations,
+.map-foreground-decorations {
+  pointer-events: none;
+}
+
+.map-sand-hill {
+  fill: rgba(255, 246, 231, 0.56);
+}
+
+.map-sand-hill.bottom {
+  fill: rgba(235, 201, 178, 0.32);
+}
+
+.map-tree line {
+  stroke: #7a5e2b;
+  stroke-linecap: round;
+  stroke-width: 5px;
+}
+
+.map-tree circle {
+  fill: #6fa22d;
+  stroke: rgba(255, 253, 248, 0.65);
+  stroke-width: 3px;
+}
+
+.map-tree.compact line {
+  stroke-width: 4px;
+}
+
+.map-tree.compact circle {
+  stroke-width: 2px;
+}
+
+.map-building rect:first-child,
+.map-building rect:nth-child(2) {
+  fill: #50b7b6;
+  stroke: rgba(18, 63, 73, 0.34);
+  stroke-width: 3px;
+}
+
+.map-window {
+  fill: rgba(255, 253, 248, 0.78);
+}
+
+.map-sign line,
+.map-speed-sign line,
+.map-yield-sign line {
+  stroke: #6a6158;
+  stroke-linecap: round;
+  stroke-width: 5px;
+}
+
+.map-sign rect {
+  fill: #354f8f;
+  stroke: rgba(255, 253, 248, 0.84);
+  stroke-width: 4px;
+}
+
+.map-sign text,
+.map-speed-sign text {
+  fill: #fffdf8;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-anchor: middle;
+}
+
+.map-speed-sign circle {
+  fill: #fffdf8;
+  stroke: #cf2e28;
+  stroke-width: 6px;
+}
+
+.map-speed-sign text {
+  fill: #101010;
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+.map-yield-sign path {
+  fill: #fffdf8;
+  stroke: #cf2e28;
+  stroke-linejoin: round;
+  stroke-width: 7px;
+}
+
+.map-sign.mobile text {
+  font-size: 11px;
+}
+
+.map-speed-sign.mobile line,
+.map-yield-sign.mobile line {
+  stroke-width: 4px;
+}
+
+.map-speed-sign.mobile circle {
+  stroke-width: 5px;
+}
+
+.map-speed-sign.mobile text {
+  font-size: 15px;
+}
+
+.map-yield-sign.mobile path {
+  stroke-width: 6px;
+}
+
+.map-pin path {
+  fill: #ca2f2a;
+  stroke: rgba(255, 253, 248, 0.82);
+  stroke-width: 5px;
+}
+
+.map-pin circle {
+  fill: #fffdf8;
+}
+
+.map-location-label {
+  fill: rgba(127, 90, 33, 0.58);
+  font-family: Impact, "Arial Narrow", sans-serif;
+  font-size: 40px;
+  letter-spacing: 0.02em;
+  text-anchor: middle;
+}
+
+.route-stop {
+  position: absolute;
+  top: var(--station-y);
+  left: var(--station-x);
+  z-index: 5;
+  display: inline-grid;
+  gap: 8px;
+  justify-items: center;
+  min-width: 132px;
+  color: var(--platform-color);
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.route-stop::before {
+  content: "";
+  position: absolute;
+  top: 46px;
+  left: 50%;
+  z-index: 0;
+  width: 4px;
+  height: 38px;
+  border-radius: 999px;
+  background: #6d645b;
+  box-shadow: inset 0 1px 0 rgba(255, 253, 248, 0.32);
+  transform: translateX(-50%);
+}
+
+.route-stop::after {
+  content: "";
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  z-index: 0;
+  width: 34px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(88, 79, 70, 0.68);
+  transform: translateX(-50%) perspective(24px) rotateX(42deg);
+}
+
+.route-logo {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  min-width: 172px;
+  min-height: 58px;
+  padding: 6px 16px 6px 6px;
+  border: 2px solid rgba(255, 253, 248, 0.96);
+  border-radius: 12px;
+  background: #fffdf8;
+  color: var(--platform-color);
+  box-shadow:
+    0 16px 26px rgba(22, 20, 16, 0.17),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  font-size: 0.94rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.route-logo::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  bottom: -6px;
+  left: 44px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(116, 105, 92, 0.22);
+}
+
+.platform-logo-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--platform-color);
+}
+
+.platform-logo-image {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: contain;
+}
+
+.uber .platform-logo-image {
+  object-fit: cover;
+  transform: scale(1.08);
+}
+
+.doordash .platform-logo-image {
+  transform: scale(1.28);
+}
+
+.zomi .platform-logo-image {
+  object-fit: cover;
+  transform: scale(1.06);
+}
+
+.platform-logo-fallback {
+  display: none;
+}
+
+.route-station-name {
+  display: inline-flex;
+  min-width: 0;
+  color: #181511;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.98rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.route-stop:hover {
+  transform: translate(-50%, calc(-50% - 4px));
+}
+
+.route-order-button {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 253, 248, 0.56);
+  border-radius: 999px;
+  background: var(--platform-color);
+  color: #fffdf8;
+  box-shadow: 0 14px 28px rgba(22, 20, 16, 0.2);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  opacity: 0;
+  pointer-events: none;
+  text-transform: uppercase;
+  transform: translateY(10px) scale(0.94);
+  animation: orderPulse 12s linear infinite;
+  animation-delay: var(--order-delay);
+}
+
+.delivery-car-svg {
+  filter: drop-shadow(0 12px 14px rgba(22, 20, 16, 0.24));
+}
+
+.car-svg-body {
+  fill: #e84a2a;
+}
+
+.car-svg-window {
+  fill: #123f49;
+  stroke: rgba(255, 253, 248, 0.24);
+  stroke-width: 3;
+}
+
+.car-svg-wheel {
+  fill: #101010;
+  stroke: #fffdf8;
+  stroke-width: 3;
+}
+
+.car-svg-hub {
+  fill: #fffdf8;
+}
+
+@keyframes orderPulse {
+  0%,
+  12%,
+  100% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.94);
+  }
+
+  18%,
+  30% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  36% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+}
+
+@keyframes roadDashDrift {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -68;
+  }
+}
+
+.delivery-ticket {
+  display: grid;
+  place-items: center;
+  padding: clamp(34px, 5vw, 72px) 24px;
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(18, 63, 73, 0.94), rgba(20, 33, 30, 0.95));
+}
+
+.ticket-shell {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(300px, 0.58fr);
+  width: min(920px, 100%);
+  background: #fffaf2;
+  color: #111111;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+}
+
+.ticket-copy {
+  padding: clamp(34px, 4.4vw, 56px);
+  border-right: 1px dashed rgba(5, 5, 5, 0.22);
+}
+
+.ticket-copy p {
+  max-width: 28ch;
+  margin: 18px 0 0;
+  color: #25211a;
+}
+
+.ticket-options {
+  display: grid;
+  align-content: center;
+  padding: 22px;
+}
+
+.ticket-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 58px;
+  border-bottom: 1px solid rgba(5, 5, 5, 0.1);
+  color: #111111;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+}
+
+.ticket-row:last-child {
+  border-bottom: 0;
+}
+
+.ticket-row strong {
+  color: var(--platform-color);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ticket-row:hover {
+  color: var(--platform-color);
+  transform: translateX(4px);
+}
+
+.delivery-cta-band {
+  padding: clamp(26px, 3vw, 40px);
+  border-radius: 0;
+  background: #d9461e;
+}
+
+.delivery-band-inner {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.4fr) minmax(0, 0.6fr);
+  gap: 28px;
+  align-items: center;
+  padding: clamp(30px, 4vw, 54px);
+  border: 1px solid rgba(255, 250, 242, 0.32);
+  color: #fffaf2;
+}
+
+.delivery-band-inner h2,
+.delivery-band-inner span {
+  color: #fffaf2;
+}
+
+.band-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.band-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 58px;
+  padding: 0 20px;
+  border: 1px solid rgba(255, 250, 242, 0.28);
+  background: rgba(255, 250, 242, 0.92);
+  color: var(--platform-color);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+}
+
+.band-link::after {
+  content: "Order";
+  color: rgba(17, 17, 17, 0.52);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.band-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(82, 18, 9, 0.22);
+}
+
+@media (max-width: 1080px) {
+  .delivery-strip,
+  .delivery-switcher,
+  .ticket-shell,
+  .delivery-band-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-app-switcher,
+  .band-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ticket-copy {
+    border-right: 0;
+    border-bottom: 1px dashed rgba(5, 5, 5, 0.22);
+  }
+}
+
+@media (max-width: 720px) {
+  .delivery-preview-intro {
+    padding: 34px 20px 14px;
+  }
+
+  .delivery-preview-intro,
+  .delivery-concept {
+    margin-bottom: 18px;
+  }
+
+  .delivery-switcher,
+  .delivery-route {
+    padding: 28px 20px;
+  }
+
+  .delivery-app-switcher,
+  .band-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-app-switcher {
+    border-radius: 18px;
+  }
+
+  .switcher-link {
+    border-radius: 12px;
+    background: rgba(255, 253, 248, 0.72);
+  }
+
+  .delivery-road-scene {
+    min-height: 540px;
+  }
+
+  .road-svg-desktop {
+    display: none;
+  }
+
+  .road-svg-mobile {
+    display: block;
+  }
+
+  .route-stop {
+    top: var(--station-mobile-y);
+    left: var(--station-mobile-x);
+    min-width: 64px;
+    transform: translate(-50%, -62%);
+  }
+
+  .route-stop::before {
+    display: none;
+  }
+
+  .route-stop::after {
+    top: 52px;
+    width: 32px;
+    background: rgba(88, 79, 70, 0.34);
+  }
+
+  .route-logo {
+    width: 58px;
+    min-width: 58px;
+    height: 58px;
+    min-height: 58px;
+    padding: 5px;
+    border: 3px solid rgba(255, 253, 248, 0.98);
+    border-radius: 50% 50% 50% 14px;
+    background: #fffdf8;
+    box-shadow:
+      0 16px 26px rgba(22, 20, 16, 0.17),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transform: rotate(-45deg);
+  }
+
+  .route-station-name {
+    display: none;
+  }
+
+  .route-logo::after {
+    display: none;
+  }
+
+  .platform-logo-tile {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transform: rotate(45deg);
+  }
+
+  .platform-logo-image {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .uber .platform-logo-image {
+    object-fit: cover;
+    transform: scale(1.16);
+  }
+
+  .doordash .platform-logo-image {
+    object-fit: contain;
+    transform: scale(1.5);
+  }
+
+  .zomi .platform-logo-image {
+    object-fit: cover;
+    transform: scale(1.16);
+  }
+
+  .fantuan .platform-logo-image {
+    transform: translateY(1px);
+  }
+
+  .route-stop:hover {
+    transform: translate(-50%, calc(-62% - 4px));
+  }
+
+  .route-order-button {
+    min-height: 36px;
+    padding: 0 12px;
+    font-size: 0.64rem;
+  }
+
+  .ticket-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-options {
+    padding: 12px 20px 20px;
+  }
+
+  .delivery-band-inner {
+    padding: 24px 18px;
+  }
+}
+
 * {
   box-sizing: border-box;
 }

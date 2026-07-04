@@ -118,11 +118,10 @@ export const brothOptions = [
 
 export const contactDetails = {
   phone: "403-999-5937",
-  email: "bigbowlhotpot@gmail.com",
   address: "1211 Edmonton Trail #130, Calgary, AB T2E 6X4",
   hours: [
     { label: "Sunday-Thursday", value: "11:30 AM - 10:00 PM" },
-    { label: "Friday-Saturday", value: "11:30 AM - 2:00 AM" },
+    { label: "Friday-Saturday", value: "11:30 AM - 1:00 AM" },
     { label: "Last Call:", value: "40 minutes before closing" }
   ]
 };

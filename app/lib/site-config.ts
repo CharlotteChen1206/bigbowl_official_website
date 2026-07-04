@@ -6,7 +6,6 @@ export const siteConfig = {
   description:
     "Big Bowl Hot Pot is a self-served MalaTang hot pot restaurant in Calgary with over 60 fresh ingredients and 9 soup bases.",
   phone: "403-999-5937",
-  email: "bigbowlhotpot@gmail.com",
   address: "1211 Edmonton Trail #130, Calgary, AB T2E 6X4",
   social: {
     facebook: "https://www.facebook.com/bigbowlhotpot/",

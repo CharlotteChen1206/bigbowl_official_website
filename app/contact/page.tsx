@@ -53,7 +53,6 @@ export default function ContactPage() {
     name: siteConfig.name,
     url: absoluteUrl("/contact"),
     telephone: contactDetails.phone,
-    email: contactDetails.email,
     image: absoluteUrl("/contact/big-bowl-hot-pot-parking-map.png"),
     address: {
       "@type": "PostalAddress",
@@ -95,10 +94,6 @@ export default function ContactPage() {
                 <div>
                   <dt>Phone</dt>
                   <dd className="contact-phone">{contactDetails.phone}</dd>
-                </div>
-                <div>
-                  <dt>Email</dt>
-                  <dd>{contactDetails.email}</dd>
                 </div>
                 <div>
                   <dt>Location</dt>

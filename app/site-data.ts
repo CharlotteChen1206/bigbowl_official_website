@@ -30,6 +30,20 @@ export const processSteps = [
 
 export const newsArticles = [
   {
+    slug: "plum-grape-oolong-tea",
+    title: "Plum Drink + Grape Oolong Tea",
+    date: "2026-07-10",
+    excerpt:
+      "Two refreshing drinks are now featured together: a cooling plum drink and a fragrant grape oolong tea.",
+    mediaSrc: "/news-assets/plum-grape-oolong-tea.png",
+    mediaType: "image",
+    mediaAlt: "Big Bowl Hot Pot plum drink and grape oolong tea poster",
+    body: [
+      "Our drink selection now features two bright pairings for your next hot pot bowl: a refreshing plum drink and a fragrant grape oolong tea. Both are made for guests who want something cooling, lightly sweet, and easy to enjoy with savory or spicy broths.",
+      "Try them with your next custom bowl, especially when you want a drink that keeps the meal feeling balanced and refreshing."
+    ]
+  },
+  {
     slug: "plum-drink",
     title: "Plum Drink",
     date: "2026-05-05",
@@ -77,9 +91,9 @@ export const newsArticles = [
     date: "2026-03-05",
     excerpt:
       "A few crispy, shareable appetizers are now easier to spot on the menu, perfect for rounding out the table before the bowls arrive.",
-    mediaSrc: "/news-assets/appetizers.jpg",
+    mediaSrc: "/news-assets/appetizers-poster.png",
     mediaType: "image",
-    mediaAlt: "Big Bowl Hot Pot appetizers poster",
+    mediaAlt: "Big Bowl Hot Pot appetizer poster",
     body: [
       "Appetizers are a small part of the menu, but they make a big difference when you are dining with friends or family. We are highlighting some easy shareable options so guests can start the meal with something crisp, warm, and familiar.",
       "They pair nicely with both mild and spicy broths, and they also help make the overall experience feel a little more complete for larger tables."

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import menuBrothsImage from "@/images/menu-broths.png";
-import menuSpecialsImage from "@/images/menu-specials.png";
+import menuBrothsImage from "@/images/menu (1).png";
+import menuSpecialsImage from "@/images/menu (2).png";
 import { PageHero } from "@/app/components/PageHero";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { SiteHeader } from "@/app/components/SiteHeader";

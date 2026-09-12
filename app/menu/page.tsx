@@ -20,7 +20,7 @@ export default function MenuPage() {
   return (
     <main className="menu-page">
       <SiteHeader currentPath="/menu" />
-      <PageHero eyebrow="Explore our" title="MENU" backgroundImage="/menu-photos/menu-banner-warm.webp" mobileBackgroundImage="/menu-photos/menu-banner-mobile.webp" />
+      <PageHero eyebrow="Explore our" title="MENU" />
       <MenuPhotoStrip />
 
       <section className="menu-gallery page-section" aria-label="Menu Posters">

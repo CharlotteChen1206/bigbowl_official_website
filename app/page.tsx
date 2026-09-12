@@ -159,7 +159,7 @@ export default function Home() {
   }, [winterHoursNoticeOpen]);
 
   return (
-    <main id="top">
+    <main id="top" className="home-page">
       {winterHoursNoticeOpen ? (
         <div className="hours-popup-backdrop" role="presentation">
           <section

@@ -1,8 +1,7 @@
 "use client";
 
 import { Oswald } from "next/font/google";
-import { useEffect, useState, type CSSProperties } from "react";
-import textureHeroImage from "@/images/background 3.png";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 const pageHeroTitleFont = Oswald({
   subsets: ["latin"],
@@ -17,8 +16,34 @@ type PageHeroProps = {
   mobileBackgroundImage?: string;
 };
 
-export function PageHero({ eyebrow, title, backgroundImage, mobileBackgroundImage }: PageHeroProps) {
+export function PageHero({
+  eyebrow,
+  title,
+  backgroundImage = "/menu-photos/subpage-banner-desktop-v2.webp",
+  mobileBackgroundImage = "/menu-photos/subpage-banner-mobile-v2.webp"
+}: PageHeroProps) {
   const [heroTextVisible, setHeroTextVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+    const alignBackground = () => {
+      // Fixed backgrounds use viewport coordinates; align to the banner's
+      // bottom at scroll zero, then leave that position fixed during scrolling.
+      const bottom = card.getBoundingClientRect().bottom + window.scrollY;
+      const imageHeight = document.documentElement.clientWidth * (1086 / 1448);
+      card.style.setProperty("--desktop-banner-top", `${bottom - imageHeight}px`);
+    };
+    alignBackground();
+    const observer = new ResizeObserver(alignBackground);
+    observer.observe(card);
+    window.addEventListener("resize", alignBackground);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", alignBackground);
+    };
+  }, []);
 
   useEffect(() => {
     const timerId = window.setTimeout(() => {
@@ -33,10 +58,11 @@ export function PageHero({ eyebrow, title, backgroundImage, mobileBackgroundImag
   return (
     <section className="subpage-hero">
       <div
-        className="subpage-hero-card"
+        ref={cardRef}
+        className="subpage-hero-card food-banner"
         style={{
-          "--page-hero-background": `url("${backgroundImage ?? textureHeroImage.src}")`,
-          "--page-hero-mobile-background": `url("${mobileBackgroundImage ?? backgroundImage ?? textureHeroImage.src}")`,
+          "--page-hero-background": `url("${backgroundImage}")`,
+          "--page-hero-mobile-background": `url("${mobileBackgroundImage}")`,
         } as CSSProperties}
       >
         <div className="subpage-hero-overlay" />

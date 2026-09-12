@@ -1493,6 +1493,14 @@ main {
 }
 
 .eyebrow,
+.home-page .hero-card,
+.home-page .intro-panel,
+.home-page .how-copy-panel,
+.home-page .how-step,
+.home-page .how-step:hover {
+  box-shadow: none;
+}
+
 .section-label {
   margin: 0 0 16px;
   font-size: 0.8rem;
@@ -2014,17 +2022,24 @@ li {
   font-weight: 700;
 }
 
-.menu-page .subpage-hero-card {
-  --menu-original-background-height: max(42.85vw, 100vh);
-  --menu-background-height: max(42.85vw, calc(var(--page-hero-card-height) + 100px));
-  background-size: auto calc((var(--menu-original-background-height) + var(--menu-background-height)) / 2);
-  background-position: center calc((100vh - var(--menu-original-background-height)) / 4 + (var(--page-hero-card-height) + 80px - var(--menu-background-height)) / 2);
+.subpage-hero-card.food-banner {
+  --page-hero-overlay-strength: 0;
+  background-size: 100% auto;
+  background-position: center var(--desktop-banner-top, calc(var(--page-hero-card-height) + 80px - 75vw));
+}
+
+@media (min-width: 721px) {
+  .subpage-hero:has(.food-banner) {
+    --page-hero-card-height: min(42.85vw, 68vh, 660px);
+  }
 }
 
 @media (max-width: 720px) {
-  .menu-page .subpage-hero-card {
-    --menu-original-background-height: max(177.68vw, 100vh);
-    --menu-background-height: max(177.68vw, calc(var(--page-hero-card-height) + 100px));
+  .subpage-hero-card.food-banner {
+    --menu-original-background-height: max(133.3vw, 100vh);
+    --menu-background-height: max(133.3vw, calc(var(--page-hero-card-height) + 100px));
+    background-size: auto calc((var(--menu-original-background-height) + var(--menu-background-height)) / 2);
+    background-position: center calc((100vh - var(--menu-original-background-height)) / 4 + (var(--page-hero-card-height) + 80px - var(--menu-background-height)) / 2);
   }
 }
 
@@ -2122,7 +2137,7 @@ li {
   border: 1px solid var(--line);
   border-radius: 28px;
   background: rgba(255, 250, 244, 0.88);
-  box-shadow: var(--shadow);
+  box-shadow: none;
 }
 
 .menu-poster-image {
@@ -2167,6 +2182,7 @@ li {
   flex-direction: column;
   padding: 0;
   background: rgba(255, 252, 246, 0.92);
+  box-shadow: none;
 }
 
 .news-thumb-shell {

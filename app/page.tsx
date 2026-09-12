@@ -1,9 +1,10 @@
 ﻿"use client";
 
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-import heroImage from "@/images/hero horizontal.png";
+import { useEffect, useRef, useState } from "react";
+import heroImage from "@/images/hero-food-spread.png";
+import mobileHeroImage from "@/images/hero-food-spread-mobile.png";
 import outsideViewImage from "@/images/outside view bg.png";
 import redBackgroundImage from "@/images/red bg.png";
 import { OrderOnlineSection } from "@/app/components/OrderOnlineSection";
@@ -11,10 +12,20 @@ import { SiteFooter } from "@/app/components/SiteFooter";
 import { SiteHeader } from "@/app/components/SiteHeader";
 import { processSteps } from "@/app/site-data";
 
+const heroImageOptions = {
+  alt: "Big Bowl Hot Pot dining experience",
+  sizes: "100vw",
+  loading: "eager" as const,
+  fetchPriority: "high" as const
+};
+const { props: desktopHeroProps } = getImageProps({ ...heroImageOptions, src: heroImage });
+const { props: mobileHeroProps } = getImageProps({ ...heroImageOptions, src: mobileHeroImage });
+
 export default function Home() {
   const heroShellRef = useRef<HTMLElement | null>(null);
   const heroCardRef = useRef<HTMLDivElement | null>(null);
   const howStepsRowRef = useRef<HTMLDivElement | null>(null);
+  const [winterHoursNoticeOpen, setWinterHoursNoticeOpen] = useState(true);
 
   useEffect(() => {
     let frameId = 0;
@@ -33,8 +44,8 @@ export default function Home() {
       const progress = Math.min(Math.max(-shellRect.top / totalScrollRange, 0), 1);
       const isMobile = window.innerWidth <= 720;
       const imageProgress = 1 - Math.pow(1 - progress, 1.05);
-      const imageStartShift = 0;
-      const imageEndShift = isMobile ? -72 : -80;
+      const imageStartShift = isMobile ? -100 : 0;
+      const imageEndShift = isMobile ? -172 : -80;
       const imageShift = imageStartShift + (imageEndShift - imageStartShift) * imageProgress;
       const imageScale = (isMobile ? 1.08 : 1.06) - imageProgress * 0.03;
       const fadeStart = 0.03;
@@ -126,18 +137,77 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!winterHoursNoticeOpen) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setWinterHoursNoticeOpen(false);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [winterHoursNoticeOpen]);
+
   return (
     <main id="top">
+      {winterHoursNoticeOpen ? (
+        <div className="hours-popup-backdrop" role="presentation">
+          <section
+            className="hours-popup"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="winter-hours-title"
+          >
+            <button
+              className="hours-popup-close"
+              type="button"
+              aria-label="Close winter hours notice"
+              onClick={() => setWinterHoursNoticeOpen(false)}
+            >
+              <span aria-hidden="true">x</span>
+            </button>
+            <p className="hours-popup-eyebrow">Winter Hours Update</p>
+            <h2 id="winter-hours-title">Late-night service is paused</h2>
+            <p>
+              Due to our winter business hours, Friday and Saturday late-night service has
+              been cancelled. We will now close at <strong>11:00 PM</strong> on Fridays
+              and Saturdays.
+            </p>
+            <button
+              className="solid-button hours-popup-button"
+              type="button"
+              onClick={() => setWinterHoursNoticeOpen(false)}
+            >
+              Got it
+            </button>
+          </section>
+        </div>
+      ) : null}
+
       <section className="hero-shell" ref={heroShellRef}>
         <SiteHeader currentPath="/" />
 
         <div className="hero-card" ref={heroCardRef}>
-          <Image
-            className="hero-image"
-            src={heroImage}
-            alt="Big Bowl Hot Pot dining experience"
-            priority
-          />
+          <picture>
+            <source
+              media="(max-width: 720px)"
+              srcSet={mobileHeroProps.srcSet}
+              sizes={mobileHeroProps.sizes}
+              width={mobileHeroProps.width}
+              height={mobileHeroProps.height}
+            />
+            <img {...desktopHeroProps} className="hero-image" />
+          </picture>
           <div className="hero-overlay" />
           <div className="hero-copy">
             <p className="hero-welcome">Welcome to</p>

@@ -30,6 +30,20 @@ export const processSteps = [
 
 export const newsArticles = [
   {
+    slug: "craft-beer-hot-tea",
+    title: "Craft Beer + Hot Tea",
+    date: "2026-09-11",
+    excerpt:
+      "Our drink menu now highlights craft beer and hot tea, giving guests more ways to pair a refreshing or cozy drink with their bowl.",
+    mediaSrc: "/news-assets/craft-beer-hot-tea.png",
+    mediaType: "image",
+    mediaAlt: "Big Bowl Hot Pot craft beer and hot tea drink menu poster",
+    body: [
+      "We have added more drink options for guests who want something special with their hot pot. The updated drink menu now features craft beer selections, including Yuzu Pale Ale, Jasmine Wheat Ale, Mango Tropical Ale, and Lychee Lager Ale.",
+      "Hot tea is also now available by teapot service, with green tea, black tea, chrysanthemum, rose, and hibiscus options. Ask our staff for assistance with alcohol orders, and check the fridge for self-serve drink selections."
+    ]
+  },
+  {
     slug: "plum-grape-oolong-tea",
     title: "Plum Drink + Grape Oolong Tea",
     date: "2026-07-10",
@@ -134,8 +148,9 @@ export const contactDetails = {
   phone: "403-999-5937",
   address: "1211 Edmonton Trail #130, Calgary, AB T2E 6X4",
   hours: [
-    { label: "Sunday-Thursday", value: "11:30 AM - 10:00 PM" },
-    { label: "Friday-Saturday", value: "11:30 AM - 1:00 AM" },
+    { label: "Sunday", value: "12:00 PM - 10:00 PM" },
+    { label: "Monday-Thursday", value: "11:30 AM - 10:00 PM" },
+    { label: "Friday-Saturday", value: "11:30 AM - 11:00 PM" },
     { label: "Last Call:", value: "40 minutes before closing" }
   ]
 };

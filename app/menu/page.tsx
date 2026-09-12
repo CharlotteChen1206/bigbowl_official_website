@@ -5,6 +5,7 @@ import menuSpecialsImage from "@/images/menu (2).png";
 import { PageHero } from "@/app/components/PageHero";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { SiteHeader } from "@/app/components/SiteHeader";
+import { MenuPhotoStrip } from "@/app/components/MenuPhotoStrip";
 
 export const metadata: Metadata = {
   title: "Menu",
@@ -17,9 +18,10 @@ export const metadata: Metadata = {
 
 export default function MenuPage() {
   return (
-    <main>
+    <main className="menu-page">
       <SiteHeader currentPath="/menu" />
-      <PageHero eyebrow="Explore our" title="MENU" />
+      <PageHero eyebrow="Explore our" title="MENU" backgroundImage="/menu-photos/menu-banner-warm.webp" mobileBackgroundImage="/menu-photos/menu-banner-mobile.webp" />
+      <MenuPhotoStrip />
 
       <section className="menu-gallery page-section" aria-label="Menu Posters">
         <article className="menu-poster-card">

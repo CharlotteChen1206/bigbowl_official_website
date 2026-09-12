@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --bg: #f2ecdf;
   --bg-deep: #14211e;
   --card: rgba(255, 250, 241, 0.82);
@@ -1202,6 +1202,92 @@ main {
   color: #161616;
 }
 
+.hours-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(13, 16, 14, 0.58);
+  backdrop-filter: blur(8px);
+}
+
+.hours-popup {
+  position: relative;
+  width: min(520px, 100%);
+  padding: clamp(28px, 4vw, 42px);
+  border: 1px solid rgba(255, 248, 236, 0.46);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(248, 241, 230, 0.98)),
+    #fffdf8;
+  box-shadow: 0 28px 80px rgba(5, 5, 5, 0.32);
+  color: #171511;
+}
+
+.hours-popup-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(20, 33, 30, 0.12);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.74);
+  color: #171511;
+  cursor: pointer;
+  font: inherit;
+  font-size: 1.45rem;
+  line-height: 1;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.hours-popup-close:hover,
+.hours-popup-close:focus-visible {
+  border-color: rgba(184, 138, 59, 0.34);
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+
+.hours-popup-eyebrow {
+  margin: 0 44px 14px 0;
+  color: #b47a14;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hours-popup h2 {
+  max-width: 16ch;
+  margin: 0 0 18px;
+  color: #101010;
+  font-size: clamp(2rem, 4.6vw, 3.1rem);
+  line-height: 1.08;
+}
+
+.hours-popup p:not(.hours-popup-eyebrow) {
+  margin: 0;
+  color: #27221a;
+  font-size: clamp(1rem, 1.7vw, 1.12rem);
+  line-height: 1.65;
+}
+
+.hours-popup strong {
+  color: #a04620;
+}
+
+.hours-popup-button {
+  margin-top: 26px;
+}
+
 .hero-card,
 .reserve-banner {
   position: relative;
@@ -1261,17 +1347,16 @@ main {
 }
 
 .hero-overlay {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 250, 242, calc(0.1 * var(--hero-overlay-strength))),
-      rgba(255, 250, 242, calc(0.16 * var(--hero-overlay-strength)))
-    ),
-    radial-gradient(
-      circle at 50% 22%,
-      rgba(255, 255, 255, calc(0.24 * var(--hero-overlay-strength))),
-      transparent 24%
-    );
+  background: radial-gradient(
+    ellipse var(--hero-mask-width, 75vw) var(--hero-mask-height, 32vw) at 50% var(--hero-mask-center, 48%),
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.62) 28%,
+    rgba(255, 255, 255, 0.38) 52%,
+    rgba(255, 255, 255, 0.12) 72%,
+    transparent 92%
+  );
+  opacity: var(--hero-copy-opacity);
+  pointer-events: none;
 }
 
 .reserve-overlay {
@@ -1313,6 +1398,7 @@ main {
 }
 
 .subpage-hero-card {
+  background-image: var(--page-hero-background);
   position: relative;
   overflow: hidden;
   min-height: var(--page-hero-card-height);
@@ -1427,8 +1513,9 @@ main {
   opacity: var(--hero-welcome-opacity);
   filter: blur(var(--hero-blur));
   text-shadow:
-    0 0 18px rgba(215, 154, 42, var(--hero-gold-glow)),
-    0 10px 30px rgba(255, 248, 230, 0.26);
+    0 0 4px rgba(255, 255, 255, 0.9),
+    0 0 12px rgba(255, 255, 255, 0.75),
+    0 0 24px rgba(255, 255, 255, 0.45);
   transition:
     opacity 180ms linear,
     filter 180ms linear,
@@ -1445,8 +1532,9 @@ main {
   opacity: var(--hero-title-opacity);
   filter: blur(calc(var(--hero-blur) * 0.55));
   text-shadow:
-    0 0 24px rgba(15, 26, 49, var(--hero-title-glow)),
-    0 18px 40px rgba(255, 255, 255, 0.2);
+    0 0 4px rgba(255, 255, 255, 0.85),
+    0 0 14px rgba(255, 255, 255, 0.65),
+    0 0 28px rgba(255, 255, 255, 0.4);
   transition:
     opacity 180ms linear,
     filter 180ms linear,
@@ -1924,6 +2012,104 @@ li {
   color: var(--accent-dark);
   font-size: 0.92rem;
   font-weight: 700;
+}
+
+.menu-page .subpage-hero-card {
+  --menu-original-background-height: max(42.85vw, 100vh);
+  --menu-background-height: max(42.85vw, calc(var(--page-hero-card-height) + 100px));
+  background-size: auto calc((var(--menu-original-background-height) + var(--menu-background-height)) / 2);
+  background-position: center calc((100vh - var(--menu-original-background-height)) / 4 + (var(--page-hero-card-height) + 80px - var(--menu-background-height)) / 2);
+}
+
+@media (max-width: 720px) {
+  .menu-page .subpage-hero-card {
+    --menu-original-background-height: max(177.68vw, 100vh);
+    --menu-background-height: max(177.68vw, calc(var(--page-hero-card-height) + 100px));
+  }
+}
+
+.menu-photo-strip {
+  margin: 32px 0 44px;
+}
+
+.menu-photo-viewport {
+  overflow-x: auto;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.menu-photo-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-photo-viewport:focus-visible {
+  outline: 2px solid var(--accent-dark);
+  outline-offset: 5px;
+}
+
+.menu-photo-track,
+.menu-photo-group {
+  display: flex;
+  width: max-content;
+}
+
+.menu-photo-group {
+  gap: 16px;
+  padding-right: 16px;
+}
+
+.menu-photo-frame {
+  position: relative;
+  flex: 0 0 252px;
+  width: 252px;
+  height: 336px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.menu-photo-frame-wide {
+  flex-basis: 448px;
+  width: 448px;
+}
+
+.menu-photo-frame img {
+  object-fit: cover;
+}
+
+.menu-photo-frame {
+  padding: 0;
+  border: 0;
+  cursor: zoom-in;
+  touch-action: pan-x pan-y pinch-zoom;
+  user-select: none;
+}
+
+.menu-photo-frame img {
+  transition: transform 450ms ease;
+  pointer-events: none;
+}
+
+.menu-photo-frame.is-selected img,
+.menu-photo-frame:focus-visible img {
+  transform: scale(1.12);
+}
+
+.menu-photo-frame.is-selected { cursor: zoom-out; }
+.menu-photo-frame:focus-visible { outline: 3px solid var(--accent-dark); outline-offset: -3px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .menu-photo-frame:hover img { transform: scale(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-photo-frame img { transition: none; }
+}
+@media (max-width: 720px) {
+  .menu-photo-strip { margin: 24px 0 32px; }
+  .menu-photo-group { gap: 12px; padding-right: 12px; }
+  .menu-photo-frame { flex-basis: 180px; width: 180px; height: 240px; border-radius: 8px; }
+  .menu-photo-frame-wide { flex-basis: 320px; width: 320px; }
 }
 
 .menu-gallery {
@@ -2686,6 +2872,45 @@ li {
   color: rgba(255, 248, 239, 0.92);
 }
 
+.footer-hours {
+  display: grid;
+  gap: 12px;
+  width: min(460px, 100%);
+  margin: 0 0 34px;
+}
+
+.footer-hours div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: baseline;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 248, 239, 0.22);
+}
+
+.footer-hours div:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.footer-hours dt,
+.footer-hours dd {
+  margin: 0;
+  color: rgba(255, 248, 239, 0.94);
+  font-size: clamp(1rem, 1.18vw, 1.14rem);
+  line-height: 1.35;
+}
+
+.footer-hours dt {
+  text-align: left;
+  font-weight: 800;
+}
+
+.footer-hours dd {
+  text-align: right;
+  font-weight: 600;
+}
+
 .footer-button {
   min-width: 212px;
   min-height: 54px;
@@ -3078,6 +3303,22 @@ li {
     font-size: 0.98rem;
   }
 
+  .footer-hours {
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .footer-hours div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    justify-items: center;
+  }
+
+  .footer-hours dt,
+  .footer-hours dd {
+    text-align: center;
+  }
+
   .footer-contact span {
     font-size: 1.3rem;
   }
@@ -3241,6 +3482,12 @@ li {
     padding: var(--hero-copy-top-offset) 24px 24px;
   }
 
+  .hero-overlay {
+    --hero-mask-width: 100vw;
+    --hero-mask-height: max(260px, 36vh);
+    --hero-mask-center: calc(var(--hero-copy-top-offset) + 110px + var(--hero-copy-shift));
+  }
+
   h1 {
     font-size: clamp(2.7rem, 14vw, 4.4rem);
   }
@@ -3307,5 +3554,11 @@ li {
   .news-article-body {
     max-width: none;
     padding-top: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .subpage-hero-card {
+    background-image: var(--page-hero-mobile-background, var(--page-hero-background));
   }
 }

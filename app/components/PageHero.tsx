@@ -1,7 +1,7 @@
 "use client";
 
 import { Oswald } from "next/font/google";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import textureHeroImage from "@/images/background 3.png";
 
 const pageHeroTitleFont = Oswald({
@@ -13,9 +13,11 @@ type PageHeroProps = {
   eyebrow: string;
   title: string;
   description?: string;
+  backgroundImage?: string;
+  mobileBackgroundImage?: string;
 };
 
-export function PageHero({ eyebrow, title }: PageHeroProps) {
+export function PageHero({ eyebrow, title, backgroundImage, mobileBackgroundImage }: PageHeroProps) {
   const [heroTextVisible, setHeroTextVisible] = useState(false);
 
   useEffect(() => {
@@ -32,7 +34,10 @@ export function PageHero({ eyebrow, title }: PageHeroProps) {
     <section className="subpage-hero">
       <div
         className="subpage-hero-card"
-        style={{ backgroundImage: `url("${textureHeroImage.src}")` }}
+        style={{
+          "--page-hero-background": `url("${backgroundImage ?? textureHeroImage.src}")`,
+          "--page-hero-mobile-background": `url("${mobileBackgroundImage ?? backgroundImage ?? textureHeroImage.src}")`,
+        } as CSSProperties}
       >
         <div className="subpage-hero-overlay" />
         <div className="subpage-hero-copy">

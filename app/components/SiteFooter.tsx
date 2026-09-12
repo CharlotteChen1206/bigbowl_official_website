@@ -1,19 +1,40 @@
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import Link from "next/link";
-import heroImage from "@/images/hero horizontal.png";
+import heroImage from "@/images/hero-food-spread.png";
+import mobileHeroImage from "@/images/hero-food-spread-mobile.png";
 import logoImage from "@/images/Logo-removebg.png";
 import { siteConfig } from "@/app/lib/site-config";
+import { contactDetails } from "@/app/site-data";
+
+const { props: desktopBackground } = getImageProps({ src: heroImage, alt: "", sizes: "100vw" });
+const { props: mobileBackground } = getImageProps({ src: mobileHeroImage, alt: "", sizes: "100vw" });
 
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <Image className="footer-background" src={heroImage} alt="" aria-hidden="true" />
+      <picture aria-hidden="true">
+        <source
+          media="(max-width: 720px)"
+          srcSet={mobileBackground.srcSet}
+          sizes={mobileBackground.sizes}
+          width={mobileBackground.width}
+          height={mobileBackground.height}
+        />
+        <img {...desktopBackground} className="footer-background" />
+      </picture>
       <div className="footer-overlay" />
       <div className="footer-content">
         <Image className="footer-logo" src={logoImage} alt="Big Bowl Hot Pot" />
-        <p className="footer-kicker">Warm bowls, slow evenings, one last invitation</p>
-        <h2>LET&apos;S EAT.</h2>
-        <p>Create your perfect bowl and enjoy the flavors of MalaTang.</p>
+        <p className="footer-kicker">Create your perfect bowl</p>
+        <h2>OPENING HOURS</h2>
+        <dl className="footer-hours">
+          {contactDetails.hours.map((item) => (
+            <div key={item.label}>
+              <dt>{item.label}</dt>
+              <dd>{item.value}</dd>
+            </div>
+          ))}
+        </dl>
         <Link className="solid-button footer-button" href="/reservation">
           Reserve Table
         </Link>

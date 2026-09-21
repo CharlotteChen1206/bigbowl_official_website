@@ -3310,8 +3310,11 @@ li {
   }
 
   .footer-content h2 {
-    font-size: 2rem;
-    margin-bottom: 18px;
+    margin-bottom: 26px;
+    color: #fffdf6;
+    font-size: 2.35rem;
+    line-height: 1;
+    text-shadow: 0 2px 14px rgba(20, 12, 6, 0.34);
   }
 
   .footer-content p {
@@ -3320,19 +3323,35 @@ li {
   }
 
   .footer-hours {
-    gap: 10px;
+    gap: 14px;
     margin-bottom: 30px;
   }
 
   .footer-hours div {
     grid-template-columns: 1fr;
-    gap: 4px;
+    gap: 6px;
     justify-items: center;
+    padding-bottom: 14px;
   }
 
   .footer-hours dt,
   .footer-hours dd {
     text-align: center;
+  }
+
+  .footer-hours dt {
+    color: #fffdf6;
+    font-size: 1.08rem;
+    line-height: 1.35;
+  }
+
+  .footer-hours dd {
+    color: #e8b84f;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.4;
+    text-shadow: 0 1px 3px rgba(43, 22, 8, 0.42);
   }
 
   .footer-contact span {

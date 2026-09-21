@@ -148,9 +148,10 @@ export const contactDetails = {
   phone: "403-999-5937",
   address: "1211 Edmonton Trail #130, Calgary, AB T2E 6X4",
   hours: [
+    { label: "Monday, Wednesday & Thursday", value: "11:30 AM - 10:00 PM" },
+    { label: "Tuesday", value: "Closed" },
+    { label: "Friday & Saturday", value: "11:30 AM - 11:00 PM" },
     { label: "Sunday", value: "12:00 PM - 10:00 PM" },
-    { label: "Monday-Thursday", value: "11:30 AM - 10:00 PM" },
-    { label: "Friday-Saturday", value: "11:30 AM - 11:00 PM" },
     { label: "Last Call:", value: "40 minutes before closing" }
   ]
 };

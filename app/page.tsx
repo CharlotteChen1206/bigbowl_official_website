@@ -180,8 +180,9 @@ export default function Home() {
             <h2 id="winter-hours-title">Late-night service is paused</h2>
             <p>
               Due to our winter business hours, Friday and Saturday late-night service has
-              been cancelled. We will now close at <strong>11:00 PM</strong> on Fridays
-              and Saturdays.
+              been cancelled. We will now close at <strong>11:00 PM</strong>{" "}
+              <strong>on Fridays and Saturdays</strong>. We are also{" "}
+              <strong>closed on Tuesdays</strong>.
             </p>
             <button
               className="solid-button hours-popup-button"
@@ -264,7 +265,7 @@ export default function Home() {
               <div className="how-copy">
                 <p>Pick up a bowl and tongs beside the refrigerated display and choose your favorite ingredients.</p>
                 <p>
-                  All ingredients are priced by weight at <strong>$3.99 per 100g.</strong> You can share a bowl with friends or enjoy one all to yourself.
+                  All ingredients are priced by weight at <strong>$4.16 per 100g.</strong> You can share a bowl with friends or enjoy one all to yourself.
                 </p>
                 <p>
                   Choose one soup base per bowl, and we&apos;ll cook it and bring it to you once
